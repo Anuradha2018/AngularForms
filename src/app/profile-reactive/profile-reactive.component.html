@@ -1,0 +1,23 @@
+{{profileForm.valid}}
+<form [formGroup] = "profileForm" (ngSubmit)="saveProfile()">
+  <label>
+    firstName: 
+    <input required type="text" formControlName="firstName">
+  </label> 
+  <label>
+      lastName: 
+      <input required type="text" formControlName="lastName">
+    </label>
+    <div formGroupName ="address">
+        <label>
+            city: 
+            <input required type="text" formControlName="city">
+          </label> 
+          <label>
+              state: 
+              <input required type="text" formControlName="state">
+            </label>
+    </div>
+    <button type="submit" [disabled]="!profileForm.valid">Save</button>
+</form>
+{{profileForm.value | json}}
